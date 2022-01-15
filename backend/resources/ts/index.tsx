@@ -1,27 +1,10 @@
-import { Button } from "@material-ui/core";
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 
-const App: React.FC = () => {
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">React導入できたわな</div>
-                        <div className="card-body">
-                            Im an example component!
-                        </div>
-                        <Button color="primary" variant="contained">
-                            Hello World
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-if (document.getElementById("app")) {
-    ReactDOM.render(<App />, document.getElementById("app"));
-}
+ReactDOM.render(
+    <React.StrictMode>
+        <App />,
+    </React.StrictMode>,
+    document.getElementById("app")
+);
