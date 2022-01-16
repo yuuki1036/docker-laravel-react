@@ -4,3 +4,8 @@ export type TableData = {
     editBtn: JSX.Element;
     deleteBtn: JSX.Element;
 };
+
+export type FormData = {
+    name: string;
+    content: string;
+};
