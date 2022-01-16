@@ -8230,6 +8230,21 @@ var Home = function Home() {
     });
   };
 
+  var rows = [];
+  posts.map(function (post) {
+    rows.push({
+      name: post.name,
+      content: post.content,
+      editBtn: react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        color: "secondary",
+        variant: "contained"
+      }, "\u7DE8\u96C6"),
+      deleteBtn: react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        color: "primary",
+        variant: "contained"
+      }, "\u5B8C\u4E86")
+    });
+  });
   return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container"
   }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) =>
 
 const Home: FC = () => {
     const classes = useStyles();
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState<TableData[]>([]);
 
     useEffect(() => getPostData(), []);
 
@@ -78,6 +78,24 @@ const Home: FC = () => {
                 console.log("通信に失敗しました");
             });
     };
+
+    let rows: TableData[] = [];
+    posts.map((post) => {
+        rows.push({
+            name: post.name,
+            content: post.content,
+            editBtn: (
+                <Button color="secondary" variant="contained">
+                    編集
+                </Button>
+            ),
+            deleteBtn: (
+                <Button color="primary" variant="contained">
+                    完了
+                </Button>
+            ),
+        });
+    });
 
     return (
         <div className="container">
