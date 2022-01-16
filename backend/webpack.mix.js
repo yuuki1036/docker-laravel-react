@@ -13,7 +13,7 @@ const glob = require("glob");
  |
  */
 
-glob.sync("resources/ts/**/*").map(function (file) {
+glob.sync("resources/ts/**/*.{js,jsx,ts,tsx}").map(function (file) {
     mix.ts(file, "public/js").version();
 });
 

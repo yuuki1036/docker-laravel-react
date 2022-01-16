@@ -12,11 +12,12 @@ import {
     TableRow,
 } from "@material-ui/core";
 import { purple } from "@material-ui/core/colors";
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import MainTable from "./components/MainTable";
 import { TableData } from "./interface";
+import axios from "axios";
 
 const headerList: string[] = ["名前", "タスク内容", "編集", "完了"];
 
@@ -62,6 +63,22 @@ const useStyles = makeStyles((theme) =>
 
 const Home: FC = () => {
     const classes = useStyles();
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => getPostData(), []);
+
+    const getPostData = () => {
+        axios
+            .get("/api/posts")
+            .then((res) => {
+                setPosts(res.data);
+                console.log(res.data);
+            })
+            .catch(() => {
+                console.log("通信に失敗しました");
+            });
+    };
+
     return (
         <div className="container">
             <div className="row justify-content-center">
