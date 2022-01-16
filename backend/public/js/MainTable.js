@@ -12729,12 +12729,15 @@ var MainTable = function MainTable(_ref) {
   }))), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], null, rows.map(function (row, idx) {
     return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
       key: idx
-    }, Object.values(row).map(function (val, i) {
-      return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        align: "center",
-        key: i
-      }, val);
-    }));
+    }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.name), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.content), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.editBtn), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.deleteBtn));
   }))));
 };
 

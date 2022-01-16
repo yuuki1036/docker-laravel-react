@@ -47,11 +47,12 @@ const MainTable: FC<Props> = ({ headerList, rows }) => {
                 <TableBody>
                     {rows.map((row, idx) => (
                         <TableRow key={idx}>
-                            {Object.values(row).map((val, i) => (
-                                <TableCell align="center" key={i}>
-                                    {val}
-                                </TableCell>
-                            ))}
+                            <TableCell align="center">{row.name}</TableCell>
+                            <TableCell align="center">{row.content}</TableCell>
+                            <TableCell align="center">{row.editBtn}</TableCell>
+                            <TableCell align="center">
+                                {row.deleteBtn}
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

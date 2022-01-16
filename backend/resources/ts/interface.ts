@@ -1,4 +1,5 @@
 export type TableData = {
+    id: number;
     name: string;
     content: string;
     editBtn: JSX.Element;

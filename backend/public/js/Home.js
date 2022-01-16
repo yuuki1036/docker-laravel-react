@@ -16448,12 +16448,15 @@ var MainTable = function MainTable(_ref) {
   }))), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], null, rows.map(function (row, idx) {
     return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
       key: idx
-    }, Object.values(row).map(function (val, i) {
-      return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        align: "center",
-        key: i
-      }, val);
-    }));
+    }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.name), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.content), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.editBtn), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      align: "center"
+    }, row.deleteBtn));
   }))));
 };
 
@@ -54631,11 +54634,14 @@ var Home = function Home() {
   var rows = [];
   posts.map(function (post) {
     rows.push({
+      id: post.id,
       name: post.name,
       content: post.content,
       editBtn: react__WEBPACK_IMPORTED_MODULE_1__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"], {
         color: "secondary",
-        variant: "contained"
+        variant: "contained",
+        key: post.id,
+        href: "/post/edit/".concat(post.id)
       }, "\u7DE8\u96C6"),
       deleteBtn: react__WEBPACK_IMPORTED_MODULE_1__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"], {
         color: "primary",
