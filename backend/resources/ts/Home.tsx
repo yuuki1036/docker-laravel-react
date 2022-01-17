@@ -2,7 +2,7 @@ import { Button, Card, createStyles, makeStyles } from "@material-ui/core";
 import React, { FC, useEffect, useState } from "react";
 import MainTable from "./components/MainTable";
 import { FormData, TableData } from "./interface";
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import PostForm from "./components/PostForm";
 
 const headerList: string[] = ["名前", "タスク内容", "編集", "完了"];
@@ -66,6 +66,15 @@ const Home: FC = () => {
             .catch((err) => console.log(err));
     };
 
+    const deletePost = async (post: TableData) => {
+        await axios
+            .post("/api/delete", { id: post.id })
+            .then((res: AxiosResponse) => {
+                setPosts(res.data);
+            })
+            .catch((err: AxiosError) => console.log(err));
+    };
+
     let rows: TableData[] = [];
     posts.map((post) => {
         rows.push({
@@ -83,8 +92,13 @@ const Home: FC = () => {
                 </Button>
             ),
             deleteBtn: (
-                <Button color="primary" variant="contained">
-                    完了
+                <Button
+                    color="primary"
+                    variant="contained"
+                    href="/"
+                    onClick={() => deletePost(post)}
+                >
+                    削除
                 </Button>
             ),
         });

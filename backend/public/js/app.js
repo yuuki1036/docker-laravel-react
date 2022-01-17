@@ -16596,6 +16596,30 @@ var Home = function Home() {
     }));
   };
 
+  var deletePost = function deletePost(post) {
+    return __awaiter(void 0, void 0, void 0, /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/delete", {
+                id: post.id
+              }).then(function (res) {
+                setPosts(res.data);
+              })["catch"](function (err) {
+                return console.log(err);
+              });
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+  };
+
   var rows = [];
   posts.map(function (post) {
     rows.push({
@@ -16610,8 +16634,12 @@ var Home = function Home() {
       }, "\u7DE8\u96C6"),
       deleteBtn: react__WEBPACK_IMPORTED_MODULE_1__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"], {
         color: "primary",
-        variant: "contained"
-      }, "\u5B8C\u4E86")
+        variant: "contained",
+        href: "/",
+        onClick: function onClick() {
+          return deletePost(post);
+        }
+      }, "\u524A\u9664")
     });
   });
   return react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
